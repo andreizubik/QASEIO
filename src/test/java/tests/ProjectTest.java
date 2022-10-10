@@ -23,7 +23,7 @@ public class ProjectTest extends BaseTest {
     }
 
     @Test
-    public void deletePtoject() {
+    public void deleteProject() {
         String projectName = fakerName.funnyName().name();
         String code = fakerCode.color().name();
         loginPage.openPage();
@@ -38,7 +38,7 @@ public class ProjectTest extends BaseTest {
     public void renameProject() {
         String projectName = fakerName.funnyName().name();
         String code = fakerCode.color().name();
-        String newName = "Переименован";
+        String newName = "Renamed";
         loginPage.openPage();
         loginPage.login(user, password);
         projectPage.createProject(projectName, "Test", code);
