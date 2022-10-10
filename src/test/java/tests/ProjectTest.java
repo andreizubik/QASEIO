@@ -13,7 +13,7 @@ public class ProjectTest extends BaseTest {
     Faker fakerCode = new Faker();
 
     @Test
-    public void createNewProject() {
+    public void createProject() {
         String projectName = fakerName.funnyName().name();
         String code = fakerCode.color().name();
         loginPage.openPage();
@@ -35,10 +35,10 @@ public class ProjectTest extends BaseTest {
     }
 
     @Test
-    public void renameProject() {
+    public void editProject() {
         String projectName = fakerName.funnyName().name();
         String code = fakerCode.color().name();
-        String newName = "Renamed";
+        String newName = "Edited";
         loginPage.openPage();
         loginPage.login(user, password);
         projectPage.createProject(projectName, "Test", code);
