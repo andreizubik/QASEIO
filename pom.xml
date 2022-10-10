@@ -8,10 +8,12 @@
     <artifactId>Qaseio</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+
     <properties>
+        <aspect.version>1.9.9.1</aspect.version>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-        <aspect.version>1.9.9.1</aspect.version>
+
     </properties>
 
     <build>
@@ -21,42 +23,37 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M4</version>
                 <configuration>
-                    <argLine>
-                        -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspect.version}/aspectjweaver-${aspect.version}.jar
-                        -Xmx256m
-                    </argLine>
+                    <!-- алюр -->
+
+
 
                 </configuration>
             </plugin>
+            <!-- алюр -->
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
-                <version>2.11.2</version>
+                <version>2.10.0</version>
             </plugin>
+
         </plugins>
     </build>
-
-    <dependencies><!-- https://mvnrepository.com/artifact/com.codeborne/selenide -->
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.codeborne/selenide -->
         <dependency>
             <groupId>com.codeborne</groupId>
             <artifactId>selenide</artifactId>
             <version>6.8.1</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+        <!-- тест нг -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>7.6.1</version>
             <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-selenide -->
-        <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-selenide</artifactId>
-            <version>2.19.0</version>
-        </dependency>
 
+        <!-- алюр -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
@@ -64,6 +61,46 @@
             <scope>test</scope>
         </dependency>
 
-    </dependencies>
+        <!-- алюр -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspect.version}</version>
+        </dependency>
 
+        <!-- алюр для селенида  https://mvnrepository.com/artifact/io.qameta.allure/allure-selenide -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-selenide</artifactId>
+            <version>2.19.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>1.0.2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>5.2.0</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.9.1</version>
+        </dependency>
+
+    </dependencies>
 </project>

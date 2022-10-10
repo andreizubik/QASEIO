@@ -7,17 +7,19 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.LoginPage;
-import pages.ProjectPage;
+import pages.ProjectsPage;
 import utils.PropertyReader;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class BaseTest {
+
     LoginPage loginPage;
-    ProjectPage projectPage;
+    ProjectsPage projectPage;
     String user;
     String password;
+
     @BeforeMethod
     public void setup() {
         Configuration.baseUrl= System.getProperty("QASE_URL", PropertyReader.getProperty("qase.url"));
@@ -31,7 +33,7 @@ public class BaseTest {
 
 
         loginPage = new LoginPage();
-        projectPage = new ProjectPage();
+        projectPage = new ProjectsPage();
 
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(false));
 
